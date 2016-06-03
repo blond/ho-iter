@@ -29,6 +29,18 @@ Install
 $ npm install --save ho-iter
 ```
 
+Usage
+-----
+
+```js
+const series = require('ho-iter').series;
+
+const set1 = new Set([1, 2]);
+const set2 = new Set([3, 4, 5]);
+
+for (let item of series(set1, set2)) { console.log(item) } // 1 2 3 4 5
+```
+
 License
 -------
 
