@@ -1,7 +1,7 @@
 {
   "name": "ho-iter",
   "version": "0.0.0",
-  "description": "The iterator which takes iterators as arguments and returns a iterator",
+  "description": "The iterator which takes iterators as arguments and returns an iterator",
   "license": "MIT",
   "repository": "blond/ho-iter",
   "author": "Andrew Abramov <mail@blond.im> (github.com/blond)",
@@ -26,7 +26,9 @@
   "engines": {
     "node": ">= 4.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "spread-args": "0.2.0"
+  },
   "devDependencies": {
     "ava": "^0.15.0",
     "coveralls": "^2.11.9",

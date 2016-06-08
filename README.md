@@ -18,7 +18,7 @@ Higher-Order Iterator
 [david]:          https://david-dm.org/blond/ho-iter
 [dependency-img]: http://img.shields.io/david/blond/ho-iter.svg
 
-The iterator which takes iterators as arguments and returns a iterator.
+The iterator which takes iterators as arguments and returns an iterator.
 
 > [Iterators and Generators Guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators)
 
@@ -27,6 +27,43 @@ Install
 
 ```
 $ npm install --save ho-iter
+```
+
+Usage
+-----
+
+```js
+const series = require('ho-iter').series;
+
+const set1 = new Set([1, 2]);
+const set2 = new Set([3, 4, 5]);
+
+for (let item of series(set1, set2)) { console.log(item) } // 1 2 3 4 5
+```
+
+API
+---
+
+### series(...iterators)
+
+Returns an Iterator, that traverses iterators in series.
+
+This is reminiscent of the concatenation of arrays.
+
+**Example:**
+
+```js
+const series = require('ho-iter').series;
+
+const arr1 = [1, 2];
+const arr2 = [3, 4];
+
+const set1 = new Set([1, 2]);
+const set2 = new Set([3, 4]);
+
+[].concat(arr1, arr2); // [1, 2, 3, 4]
+
+for (let item of series(set1, set2)) { console.log(item) } // 1 2 3 4
 ```
 
 License
