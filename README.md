@@ -46,6 +46,9 @@ for (let item of evenly(set1, set2)) { console.log(item) } // 1 3 2 4 5
 API
 ---
 
+* [series(...iterators)](#seriesiterators)
+* [evenly(...iterators)](#evenlyiterators)
+
 ### series(...iterators)
 
 Returns an Iterator, that traverses iterators in series.
@@ -72,7 +75,7 @@ for (let item of series(set1, set2)) { console.log(item) } // 1 2 3 4
 
 Returns an Iterator, that traverses iterators evenly.
 
-This is reminiscent of the traverses of several arrays.
+This is reminiscent of the traversing of several arrays
 
 **Example:**
 
