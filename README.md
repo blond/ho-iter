@@ -66,6 +66,33 @@ const set2 = new Set([3, 4]);
 for (let item of series(set1, set2)) { console.log(item) } // 1 2 3 4
 ```
 
+### series(...iterators)
+
+Returns an Iterator, that traverses iterators evenly.
+
+This is reminiscent of the traverses of several arrays.
+
+**Example:**
+
+```js
+const evenly = require('ho-iter').evenly;
+
+const arr1 = [1, 2];
+const arr2 = [3, 4];
+
+const set1 = new Set([1, 2]);
+const set2 = new Set([3, 4]);
+
+for (let i = 0; i < arr1.length; i++) {
+    console.log(arr1[i]);
+    console.log(arr2[i]);
+}
+
+// 1 3 2 4
+
+for (let item of evenly(set1, set2)) { console.log(item) } // 1 3 2 4
+```
+
 License
 -------
 
