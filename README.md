@@ -66,7 +66,7 @@ const set2 = new Set([3, 4]);
 for (let item of series(set1, set2)) { console.log(item) } // 1 2 3 4
 ```
 
-### series(...iterators)
+### evenly(...iterators)
 
 Returns an Iterator, that traverses iterators evenly.
 
