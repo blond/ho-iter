@@ -3,21 +3,20 @@
 const test = require('ava');
 
 const series = require('../lib/series');
-
-const DONE = { value: null, done: true };
+const done = require('../lib/done');
 
 test('should return empty iterator', t => {
     const iter = series();
 
-    t.deepEqual(iter.next(), DONE);
+    t.deepEqual(iter.next(), done());
 });
 
 test('should support empty iterator', t => {
-    const emptyIter = { next: () => (DONE) };
+    const emptyIter = { next: () => (done()) };
 
     const iter = series(emptyIter);
 
-    t.deepEqual(iter.next(), DONE);
+    t.deepEqual(iter.next(), done());
 });
 
 test('should return the equal iterator', t => {
