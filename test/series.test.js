@@ -19,7 +19,7 @@ test('should support empty iterator', t => {
     t.deepEqual(iter.next(), done());
 });
 
-test('should return the equal iterator', t => {
+test('should return equal iterator', t => {
     const values = (new Set([1, 2])).values();
 
     const iter = series(values);
@@ -54,7 +54,7 @@ test('should concat iterators with empty iterator', t => {
     t.deepEqual(Array.from(iter), [1, 2, 3, 4]);
 });
 
-test('should concat the equal iterators', t => {
+test('should concat equal iterators', t => {
     const set = new Set([1, 2]);
 
     const iter = series(set.values(), set.values());
