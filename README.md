@@ -48,6 +48,7 @@ API
 
 * [series(...iterators)](#seriesiterators)
 * [evenly(...iterators)](#evenlyiterators)
+* [reverse(iterator)](#reverseiterators)
 
 ### series(...iterators)
 
@@ -96,6 +97,30 @@ for (let i = 0; i < arr1.length; i++) {
 // 1 3 2 4
 
 for (let item of evenly(set1, set2)) { console.log(item) } // 1 3 2 4
+```
+
+### reverse(iterator)
+
+Return an reversed Iterator.
+
+This is reminiscent of the reversing of array
+
+**Example:**
+
+```js
+const reverse = require('ho-iter').reverse;
+
+const arr = [1, 2, 3, 4];
+
+const set = new Set([1, 2, 3, 4]);
+
+for (let i = lenght; i > 0; i--) {
+    console.log(arr[i]);
+}
+
+// 4 3 2 1
+
+for (let item of reverse(set)) { console.log(item) } // 4 3 2 1
 ```
 
 License
