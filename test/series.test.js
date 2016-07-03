@@ -5,6 +5,8 @@ const test = require('ava');
 const series = require('../lib/series');
 const done = require('../lib/done');
 
+const createIter = (vals) => (new Set(vals)).values();
+
 test('should return empty iterator', t => {
     const iter = series();
 
@@ -63,9 +65,46 @@ test('should concat equal iterators', t => {
 });
 
 test('should traverse the same iterator once', t => {
-    const values = (new Set([1, 2])).values();
+    const values = createIter([1, 2]);
 
+    // redundant
     const iter = series(values, values);
 
     t.deepEqual(Array.from(iter), [1, 2]);
+});
+
+test('nul 12', t => {
+    const iter = series(null, createIter([1, 2]));
+
+    t.deepEqual(Array.from(iter), [1, 2]);
+});
+
+test('12 null 34', t => {
+    const iter = series(createIter([1, 2]), null, createIter([3, 4]));
+
+    t.deepEqual(Array.from(iter), [1, 2, 3, 4]);
+});
+
+test('nulnul 12', t => {
+    const iter = series(null, null, createIter([1, 2]));
+
+    t.deepEqual(Array.from(iter), [1, 2]);
+});
+
+test('null 12 nulnul 34', t => {
+    const iter = series(null, createIter([1, 2]), null, null, createIter([3, 4]));
+
+    t.deepEqual(Array.from(iter), [1, 2, 3, 4]);
+});
+
+test('null empty nulnul 12', t => {
+    const iter = series(null, createIter(), null, null, createIter([1, 2]));
+
+    t.deepEqual(Array.from(iter), [1, 2]);
+});
+
+test('nulls', t => {
+    const iter = series(null, null, null);
+
+    t.deepEqual(Array.from(iter), []);
 });
