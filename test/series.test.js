@@ -3,6 +3,7 @@
 const test = require('ava');
 
 const series = require('../lib/series');
+const takeIterator = require('../lib/take-iterator');
 const empty = require('../lib/empty');
 const done = require('../lib/done');
 
@@ -21,51 +22,52 @@ test('should support empty iterator', t => {
 });
 
 test('should return equal iterator', t => {
-    const values = (new Set([1, 2])).values();
+    const iter = takeIterator([1, 2]);
 
-    const iter = series(values);
+    const seriesIter = series(iter);
 
-    t.deepEqual(Array.from(iter), [1, 2]);
+    t.deepEqual(Array.from(seriesIter), [1, 2]);
 });
 
 test('should support iterable', t => {
     const iterable = [1, 2];
 
-    const iter = series(iterable);
+    const seriesIter = series(iterable);
 
-    t.deepEqual(Array.from(iter), iterable);
+    t.deepEqual(Array.from(seriesIter), iterable);
 });
 
 test('should concat iterators', t => {
-    const values1 = (new Set([1, 2])).values();
-    const values2 = (new Set([3, 4])).values();
+    const iter1 = takeIterator([1, 2]);
+    const iter2 = takeIterator([3, 4]);
 
-    const iter = series(values1, values2);
+    const seriesIter = series(iter1, iter2);
 
-    t.deepEqual(Array.from(iter), [1, 2, 3, 4]);
+    t.deepEqual(Array.from(seriesIter), [1, 2, 3, 4]);
 });
 
 test('should concat iterators with empty iterator', t => {
-    const values1 = (new Set([1, 2])).values();
-    const values2 = (new Set([3, 4])).values();
+    const iter1 = takeIterator([1, 2]);
+    const iter2 = takeIterator([3, 4]);
 
-    const iter = series(values1, empty(), values2);
+    const seriesIter = series(iter1, empty(), iter2);
 
-    t.deepEqual(Array.from(iter), [1, 2, 3, 4]);
+    t.deepEqual(Array.from(seriesIter), [1, 2, 3, 4]);
 });
 
 test('should concat equal iterators', t => {
-    const set = new Set([1, 2]);
+    const iter1 = takeIterator([1, 2]);
+    const iter2 = takeIterator([1, 2]);
 
-    const iter = series(set.values(), set.values());
+    const seriesIter = series(iter1, iter2);
 
-    t.deepEqual(Array.from(iter), [1, 2, 1, 2]);
+    t.deepEqual(Array.from(seriesIter), [1, 2, 1, 2]);
 });
 
 test('should traverse the same iterator once', t => {
-    const values = (new Set([1, 2])).values();
+    const iter = takeIterator([1, 2]);
 
-    const iter = series(values, values);
+    const seriesIter = series(iter, iter);
 
-    t.deepEqual(Array.from(iter), [1, 2]);
+    t.deepEqual(Array.from(seriesIter), [1, 2]);
 });
