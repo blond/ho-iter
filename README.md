@@ -46,8 +46,23 @@ for (let item of evenly(set1, set2)) { console.log(item) } // 1 3 2 4 5
 API
 ---
 
+* [empty(...iterators)](#emptyiterators)
 * [series(...iterators)](#seriesiterators)
 * [evenly(...iterators)](#evenlyiterators)
+
+### empty()
+
+Returns an empty Iterator.
+
+**Example:**
+
+```js
+const empty = require('ho-iter').empty;
+
+const iter = empty();
+
+console.log(iter.next()); // { value: null, done: true }
+```
 
 ### series(...iterators)
 
