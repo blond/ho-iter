@@ -46,9 +46,9 @@ for (let item of evenly(set1, set2)) { console.log(item) } // 1 3 2 4 5
 API
 ---
 
-* [empty(...iterators)](#emptyiterators)
-* [series(...iterators)](#seriesiterators)
-* [evenly(...iterators)](#evenlyiterators)
+* [empty()](#emptyiterators)
+* [series(...iterables)](#seriesiterators)
+* [evenly(...iterables)](#evenlyiterators)
 
 ### empty()
 
@@ -64,7 +64,7 @@ const iter = empty();
 console.log(iter.next()); // { value: null, done: true }
 ```
 
-### series(...iterators)
+### series(...iterables)
 
 Returns an Iterator, that traverses iterators in series.
 
@@ -86,7 +86,7 @@ const set2 = new Set([3, 4]);
 for (let item of series(set1, set2)) { console.log(item) } // 1 2 3 4
 ```
 
-### evenly(...iterators)
+### evenly(...iterables)
 
 Returns an Iterator, that traverses iterators evenly.
 
