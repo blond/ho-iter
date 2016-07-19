@@ -3,6 +3,7 @@
 const test = require('ava');
 
 const series = require('../lib/series');
+const empty = require('../lib/empty');
 const done = require('../lib/done');
 
 test('should return empty iterator', t => {
@@ -12,7 +13,7 @@ test('should return empty iterator', t => {
 });
 
 test('should support empty iterator', t => {
-    const emptyIter = { next: () => (done()) };
+    const emptyIter = empty();
 
     const iter = series(emptyIter);
 
@@ -45,11 +46,10 @@ test('should concat iterators', t => {
 });
 
 test('should concat iterators with empty iterator', t => {
-    const emptyIter = { next: () => ({ done: true }) };
     const values1 = (new Set([1, 2])).values();
     const values2 = (new Set([3, 4])).values();
 
-    const iter = series(values1, emptyIter, values2);
+    const iter = series(values1, empty(), values2);
 
     t.deepEqual(Array.from(iter), [1, 2, 3, 4]);
 });
