@@ -46,9 +46,23 @@ for (let item of evenly(set1, set2)) { console.log(item) } // 1 3 2 4 5
 API
 ---
 
+* [isIterable(iterator)](#isiterableiterator)
 * [empty()](#emptyiterators)
 * [series(...iterables)](#seriesiterators)
 * [evenly(...iterables)](#evenlyiterators)
+
+### isIterable(iterator)
+
+Returns `true` if the specified object implements the Iterator protocol via implementing a `Symbol.iterator`.
+
+**Example:**
+
+```js
+const isIterable = require('ho-iter').isIterable;
+
+console.log(isIterable([1, 2, 3])); // true
+console.log(isIterable(123)); // false
+```
 
 ### empty()
 
