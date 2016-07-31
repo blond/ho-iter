@@ -60,8 +60,8 @@ Returns `true` if the specified object implements the Iterator protocol via impl
 ```js
 const isIterable = require('ho-iter').isIterable;
 
-console.log(isIterable([1, 2, 3])); // true
-console.log(isIterable(123)); // false
+isIterable([1, 2, 3]); // true
+isIterable(123); // false
 ```
 
 ### empty()
@@ -75,7 +75,7 @@ const empty = require('ho-iter').empty;
 
 const iter = empty();
 
-console.log(iter.next()); // { value: null, done: true }
+iter.next(); // { value: null, done: true }
 ```
 
 ### series(...iterables)
@@ -97,7 +97,11 @@ const set2 = new Set([3, 4]);
 
 [].concat(arr1, arr2); // [1, 2, 3, 4]
 
-for (let item of series(set1, set2)) { console.log(item) } // 1 2 3 4
+for (let item of series(set1, set2)) {
+    console.log(item);
+}
+
+// 1 2 3 4
 ```
 
 ### evenly(...iterables)
@@ -124,7 +128,11 @@ for (let i = 0; i < arr1.length; i++) {
 
 // 1 3 2 4
 
-for (let item of evenly(set1, set2)) { console.log(item) } // 1 3 2 4
+for (let item of evenly(set1, set2)) {
+    console.log(item);
+}
+
+// 1 3 2 4
 ```
 
 License
