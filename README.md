@@ -48,7 +48,6 @@ API
 
 * [isIterable(iterable)](#isiterableiterable)
 * [isIterator(iterator)](#isiteratoriterator)
-* [empty()](#emptyiterators)
 * [series(...iterables)](#seriesiterators)
 * [evenly(...iterables)](#evenlyiterators)
 
@@ -77,20 +76,6 @@ const iterator = generator();
 
 isIterator(generator) // false
 isIterator(iterator) // true
-```
-
-### empty()
-
-Returns an empty Iterator.
-
-**Example:**
-
-```js
-const empty = require('ho-iter').empty;
-
-const iter = empty();
-
-iter.next(); // { value: null, done: true }
 ```
 
 ### series(...iterables)
