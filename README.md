@@ -47,6 +47,7 @@ API
 ---
 
 * [isIterable(iterable)](#isiterableiterable)
+* [isIterator(iterator)](#isiteratoriterator)
 * [empty()](#emptyiterators)
 * [series(...iterables)](#seriesiterators)
 * [evenly(...iterables)](#evenlyiterators)
@@ -62,6 +63,20 @@ const isIterable = require('ho-iter').isIterable;
 
 isIterable([1, 2, 3]); // true
 isIterable(123); // false
+```
+
+### isIterator(iterator)
+
+Returns `true` if the specified object is iterator.
+
+```js
+const isIterator = require('ho-iter').isIterator;
+
+const generator = function *() {};
+const iterator = generator();
+
+isIterator(generator) // false
+isIterator(iterator) // true
 ```
 
 ### empty()
