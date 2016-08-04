@@ -46,12 +46,12 @@ for (let item of evenly(set1, set2)) { console.log(item) } // 1 3 2 4 5
 API
 ---
 
-* [isIterable(iterator)](#isiterableiterator)
+* [isIterable(iterable)](#isiterableiterable)
 * [empty()](#emptyiterators)
 * [series(...iterables)](#seriesiterators)
 * [evenly(...iterables)](#evenlyiterators)
 
-### isIterable(iterator)
+### isIterable(iterable)
 
 Returns `true` if the specified object implements the Iterator protocol via implementing a `Symbol.iterator`.
 
