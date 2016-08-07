@@ -56,10 +56,28 @@ console.log(`values: ${values}`);
 API
 ---
 
+* [value(value)](#valuevalue)
 * [isIterable(iterable)](#isiterableiterable)
 * [isIterator(iterator)](#isiteratoriterator)
 * [series(...iterables)](#seriesiterators)
 * [evenly(...iterables)](#evenlyiterators)
+
+### value(value)
+
+Creates iterator with specified `value`.
+
+If value is not specified, returns empty iterator.
+
+**Example:**
+
+```js
+const hoi = require('ho-iter');
+
+const iter = hoi.value(123);
+
+iter.next(); // { value: 123, done: false }
+iter.next(); // { value: null, done: true }
+```
 
 ### isIterable(iterable)
 
