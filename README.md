@@ -33,14 +33,24 @@ Usage
 -----
 
 ```js
-const series = require('ho-iter').series;
-const evenly = require('ho-iter').evenly;
+const hoi = require('ho-iter');
 
-const set1 = new Set([1, 2]);
-const set2 = new Set([3, 4, 5]);
+const entries1 = hoi({ foo: 'bar' });
+const entries2 = hoi({ baz: 42 });
 
-for (let item of series(set1, set2)) { console.log(item) } // 1 2 3 4 5
-for (let item of evenly(set1, set2)) { console.log(item) } // 1 3 2 4 5
+const keys = [];
+const values = [];
+
+for (let [key, value] of hoi.series(entries1, entries2)) {
+    keys.push(key);
+    values.push(value);
+}
+
+console.log(`keys: ${keys}`);
+console.log(`values: ${values}`);
+
+// keys: [foo, baz]
+// values: [bar, 42]
 ```
 
 API
