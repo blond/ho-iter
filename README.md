@@ -49,8 +49,8 @@ for (let [key, value] of hoi.series(entries1, entries2)) {
 console.log(`keys: ${keys}`);
 console.log(`values: ${values}`);
 
-// keys: [foo, baz]
-// values: [bar, 42]
+// ➜ keys: [foo, baz]
+// ➜ values: [bar, 42]
 ```
 
 API
@@ -105,20 +105,22 @@ const arr2 = [3, 4];
 const set1 = new Set([1, 2]);
 const set2 = new Set([3, 4]);
 
-[].concat(arr1, arr2); // [1, 2, 3, 4]
+[].concat(arr1, arr2);
+
+// ➜ [1, 2, 3, 4]
 
 for (let item of series(set1, set2)) {
     console.log(item);
 }
 
-// 1 2 3 4
+// ➜ 1 2 3 4
 ```
 
 ### evenly(...iterables)
 
 Returns an Iterator, that traverses iterators evenly.
 
-This is reminiscent of the traversing of several arrays
+This is reminiscent of the traversing of several arrays.
 
 **Example:**
 
@@ -136,13 +138,13 @@ for (let i = 0; i < arr1.length; i++) {
     console.log(arr2[i]);
 }
 
-// 1 3 2 4
+// ➜ 1 3 2 4
 
 for (let item of evenly(set1, set2)) {
     console.log(item);
 }
 
-// 1 3 2 4
+// ➜ 1 3 2 4
 ```
 
 License
