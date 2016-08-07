@@ -56,6 +56,21 @@ console.log(`values: ${values}`);
 API
 ---
 
+Create iterator:
+
+* [hoi(iterable)](#hoiiterable)
+* [hoi(iterator)](#hoiiterator)
+* [hoi(object)](#hoiobject)
+* [hoi(number|boolean|symbol|regexp|function)](#hoinumberbooleansymbolregexpfunction)
+
+Helpers:
+
+* [value(value)](#valuevalue)
+* [isIterable(iterable)](#isiterableiterable)
+* [isIterator(iterator)](#isiteratoriterator)
+* [series(...iterables)](#seriesiterators)
+* [evenly(...iterables)](#evenlyiterators)
+
 ### hoi(iterable)
 
 Creates iterator for iterable object.
