@@ -3,8 +3,7 @@
 const test = require('ava');
 
 const series = require('../lib/series');
-const takeIterator = require('../lib/take-iterator');
-const empty = require('../lib/empty');
+const createIterator = require('../lib/create-iterator');
 const done = require('../lib/done');
 
 test('should return empty iterator', t => {
@@ -14,7 +13,7 @@ test('should return empty iterator', t => {
 });
 
 test('should support empty iterator', t => {
-    const emptyIter = empty();
+    const emptyIter = createIterator();
 
     const iter = series(emptyIter);
 
@@ -22,7 +21,7 @@ test('should support empty iterator', t => {
 });
 
 test('should return equal iterator', t => {
-    const iter = takeIterator([1, 2]);
+    const iter = createIterator([1, 2]);
 
     const seriesIter = series(iter);
 
@@ -38,8 +37,8 @@ test('should support iterable', t => {
 });
 
 test('should concat iterators', t => {
-    const iter1 = takeIterator([1, 2]);
-    const iter2 = takeIterator([3, 4]);
+    const iter1 = createIterator([1, 2]);
+    const iter2 = createIterator([3, 4]);
 
     const seriesIter = series(iter1, iter2);
 
@@ -47,17 +46,17 @@ test('should concat iterators', t => {
 });
 
 test('should concat iterators with empty iterator', t => {
-    const iter1 = takeIterator([1, 2]);
-    const iter2 = takeIterator([3, 4]);
+    const iter1 = createIterator([1, 2]);
+    const iter2 = createIterator([3, 4]);
 
-    const seriesIter = series(iter1, empty(), iter2);
+    const seriesIter = series(iter1, createIterator(), iter2);
 
     t.deepEqual(Array.from(seriesIter), [1, 2, 3, 4]);
 });
 
 test('should concat equal iterators', t => {
-    const iter1 = takeIterator([1, 2]);
-    const iter2 = takeIterator([1, 2]);
+    const iter1 = createIterator([1, 2]);
+    const iter2 = createIterator([1, 2]);
 
     const seriesIter = series(iter1, iter2);
 
@@ -65,7 +64,7 @@ test('should concat equal iterators', t => {
 });
 
 test('should traverse the same iterator once', t => {
-    const iter = takeIterator([1, 2]);
+    const iter = createIterator([1, 2]);
 
     const seriesIter = series(iter, iter);
 
