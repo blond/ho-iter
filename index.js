@@ -2,6 +2,8 @@
 
 const createIterator = require('./lib/create-iterator');
 
+createIterator.value = require('./lib/value');
+
 createIterator.isIterable = require('./lib/is-iterable');
 createIterator.isIterator = require('./lib/is-iterator');
 
