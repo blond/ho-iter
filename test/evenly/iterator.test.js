@@ -4,12 +4,11 @@ const test = require('ava');
 
 const evenly = require('../../lib/evenly');
 const createIterator = require('../../lib/create-iterator');
-const done = require('../../lib/done');
 
 test('should return empty iterator', t => {
     const iter = evenly();
 
-    t.deepEqual(iter.next(), done());
+    t.deepEqual(iter.next(), { done: true });
 });
 
 test('should support empty iterator', t => {
@@ -17,7 +16,7 @@ test('should support empty iterator', t => {
 
     const iter = evenly(emptyIter);
 
-    t.deepEqual(iter.next(), done());
+    t.deepEqual(iter.next(), { done: true });
 });
 
 test('should return equal iterator', t => {
