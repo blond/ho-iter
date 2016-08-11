@@ -10,4 +10,4 @@ createIterator.isIterator = require('./lib/is-iterator');
 createIterator.series = require('./lib/series');
 createIterator.evenly = require('./lib/evenly');
 
-module.exports = createIterator;
+module.exports = (value) => createIterator(value, { strict: true });
