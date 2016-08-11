@@ -2,9 +2,9 @@
 
 const test = require('ava');
 
-const evenly = require('../lib/evenly');
-const createIterator = require('../lib/create-iterator');
-const done = require('../lib/done');
+const evenly = require('../../lib/evenly');
+const createIterator = require('../../lib/create-iterator');
+const done = require('../../lib/done');
 
 test('should return empty iterator', t => {
     const iter = evenly();
@@ -36,7 +36,7 @@ test('should support iterable', t => {
     t.deepEqual(Array.from(evenlyIter), iterable);
 });
 
-test('should traverse iterators', t => {
+test('should concat iterators', t => {
     const iter1 = createIterator([1, 2]);
     const iter2 = createIterator([3, 4]);
 
@@ -45,7 +45,7 @@ test('should traverse iterators', t => {
     t.deepEqual(Array.from(evenlyIter), [1, 3, 2, 4]);
 });
 
-test('should traverse iterators with empty iterator', t => {
+test('should concat iterators with empty iterator', t => {
     const iter1 = createIterator([1, 2]);
     const iter2 = createIterator([3, 4]);
 
@@ -54,7 +54,7 @@ test('should traverse iterators with empty iterator', t => {
     t.deepEqual(Array.from(evenlyIter), [1, 3, 2, 4]);
 });
 
-test('should traverse equal iterators', t => {
+test('should concat equal iterators', t => {
     const iter1 = createIterator([1, 2]);
     const iter2 = createIterator([1, 2]);
 
@@ -66,7 +66,7 @@ test('should traverse equal iterators', t => {
 test('should traverse the same iterator once', t => {
     const iter = createIterator([1, 2]);
 
-    const evenlyIter = evenly(iter);
+    const evenlyIter = evenly(iter, iter);
 
     t.deepEqual(Array.from(evenlyIter), [1, 2]);
 });
