@@ -2,9 +2,9 @@
 
 const test = require('ava');
 
-const series = require('../lib/series');
-const createIterator = require('../lib/create-iterator');
-const done = require('../lib/done');
+const series = require('../../lib/series');
+const createIterator = require('../../lib/create-iterator');
+const done = require('../../lib/done');
 
 test('should return empty iterator', t => {
     const iter = series();
