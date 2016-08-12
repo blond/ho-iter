@@ -27,15 +27,15 @@ function macro(t, value) {
     t.is(iter.next().done, true);
 }
 
-test('should create empty iterator with `null`', macro, null);
-test('should create empty iterator with `undefined`', macro, undefined);
-test('should create empty iterator with `false`', macro, false);
-test('should create empty iterator with empty string', macro, '');
-test('should create empty iterator with zero number', macro, 0);
+test('should create one item iterator with `null`', macro, null);
+test('should create one item iterator with `undefined`', macro, undefined);
+test('should create one item iterator with `false`', macro, false);
+test('should create one item iterator with empty string', macro, '');
+test('should create one item iterator with zero number', macro, 0);
 
-test('should create empty iterator with `true`', macro, true);
-test('should create empty iterator with string', macro, 'str');
-test('should create empty iterator with number', macro, 123);
+test('should create one item iterator with `true`', macro, true);
+test('should create one item iterator with string', macro, 'str');
+test('should create one item iterator with number', macro, 123);
 
-test('should create empty iterator with object', macro, {});
-test('should create empty iterator with array', macro, [1, 2, 3]);
+test('should create one item iterator with object', macro, {});
+test('should create one item iterator with array', macro, [1, 2, 3]);
