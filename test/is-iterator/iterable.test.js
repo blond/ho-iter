@@ -3,13 +3,12 @@
 const test = require('ava');
 
 const isIterator = require('../../lib/is-iterator');
-const done = require('../../lib/done');
 
 test('iterable object should not be iterator', t => {
     const iterable = {
         [Symbol.iterator]() {
             return {
-                next: () => (done)
+                next: () => ({ done: true })
             };
         }
     };

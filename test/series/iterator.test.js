@@ -2,14 +2,13 @@
 
 const test = require('ava');
 
-const series = require('../lib/series');
-const createIterator = require('../lib/create-iterator');
-const done = require('../lib/done');
+const series = require('../../lib/series');
+const createIterator = require('../../lib/create-iterator');
 
 test('should return empty iterator', t => {
     const iter = series();
 
-    t.deepEqual(iter.next(), done());
+    t.deepEqual(iter.next(), { done: true });
 });
 
 test('should support empty iterator', t => {
@@ -17,7 +16,7 @@ test('should support empty iterator', t => {
 
     const iter = series(emptyIter);
 
-    t.deepEqual(iter.next(), done());
+    t.deepEqual(iter.next(), { done: true });
 });
 
 test('should return equal iterator', t => {
