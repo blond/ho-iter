@@ -2,12 +2,12 @@
 
 const createIterator = require('./lib/create-iterator');
 
-createIterator.value = require('./lib/value');
+exports = (value) => createIterator(value, { strict: true });
 
-createIterator.isIterable = require('./lib/is-iterable');
-createIterator.isIterator = require('./lib/is-iterator');
+exports.value = require('./lib/value');
+exports.isIterable = require('./lib/is-iterable');
+exports.isIterator = require('./lib/is-iterator');
+exports.series = require('./lib/series');
+exports.evenly = require('./lib/evenly');
 
-createIterator.series = require('./lib/series');
-createIterator.evenly = require('./lib/evenly');
-
-module.exports = (value) => createIterator(value, { strict: true });
+module.exports = exports;
