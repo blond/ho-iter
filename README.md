@@ -70,6 +70,7 @@ Helpers:
 * [isIterator(iterator)](#isiteratoriterator)
 * [series(...iterables)](#seriesiterators)
 * [evenly(...iterables)](#evenlyiterators)
+* [reverse(iterable)](#reverseiterable)
 
 ### hoi(iterable)
 
@@ -322,6 +323,7 @@ Use [hoi.value(value)](#valuevalue) to create iterator with one value.
 * [isIterator(iterator)](#isiteratoriterator)
 * [series(...iterables)](#seriesiterators)
 * [evenly(...iterables)](#evenlyiterators)
+* [reverse(iterable)](#reverseiterable)
 
 #### value(value)
 
@@ -424,6 +426,35 @@ for (let item of evenly(set1, set2)) {
 }
 
 // ➜ 1 3 2 4
+```
+
+### reverse(iterator)
+
+Returns an reversed Iterator.
+
+**Important:** incompatible with infinite iterator. Don't use infinite iterator, otherwise reverse method will fall into endless loop loop.
+
+This is reminiscent of the reversing of an array.
+
+**Example:**
+
+```js
+const reverse = require('ho-iter').reverse;
+
+const arr = [1, 2, 3, 4];
+const set = new Set([1, 2, 3, 4]);
+
+for (let i = arr.length; i >= 0; i--) {
+    console.log(arr[i]);
+}
+
+// ➜ 4 3 2 1
+
+for (let item of reverse(set)) {
+    console.log(item);
+}
+
+// ➜ 4 3 2 1
 ```
 
 License
