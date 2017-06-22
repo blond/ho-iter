@@ -1,6 +1,8 @@
 Higher-Order Iterator
 =====================
 
+OLOLO
+
 [![NPM Status][npm-img]][npm]
 [![Travis Status][test-img]][travis]
 [![Coverage Status][coverage-img]][coveralls]
