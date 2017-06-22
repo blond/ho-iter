@@ -2,6 +2,7 @@ Higher-Order Iterator
 =====================
 
 OLOLO
+TROLOLO
 
 [![NPM Status][npm-img]][npm]
 [![Travis Status][test-img]][travis]
