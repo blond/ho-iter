@@ -10,7 +10,7 @@ Higher-Order Iterator
 [npm-img]:        https://img.shields.io/npm/v/ho-iter.svg
 
 [travis]:         https://travis-ci.org/blond/ho-iter
-[test-img]:       https://img.shields.io/travis/blond/ho-iter.svg?label=tests
+[test-img]:       https://travis-ci.org/blond/ho-iter.svg?branch=master
 
 [coveralls]:      https://coveralls.io/r/blond/ho-iter
 [coverage-img]:   https://img.shields.io/coveralls/blond/ho-iter.svg
