@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "is-error": "2.2.1",
-    "is-promise": "2.1.0",
+    "is-promise": "4.0.0",
     "kind-of": "3.2.0",
     "spread-args": "0.2.0"
   },
